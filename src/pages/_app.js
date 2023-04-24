@@ -6,6 +6,7 @@ import { Rubik } from 'next/font/google';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }) {
         </AnimatePresence>
         <Footer />
       </main>
+      <Analytics />
     </>
   );
 }
