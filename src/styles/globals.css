@@ -1,25 +1,29 @@
+@import '../../public/assets/css/pillar-1.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "../../public/assets/css/pillar-1.css";
 
 .banner h1 {
-    letter-spacing: 0.8px;
-    line-height: 1;
-    margin-top: 0px;
-    margin-bottom: 20px;
-    display: block;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .nftContainer {
-  display: flex; width: 100%; flex-direction: column; overflow: hidden;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
   height: calc(100vh - 96px);
 }
 
 .nftIframe {
   display: flex;
-  border: none; 
-  margin: 0; 
+  border: none;
+  margin: 0;
   padding: 0;
-  flex: 1 ;
+  flex: 1;
 }

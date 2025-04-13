@@ -2,7 +2,7 @@
 import Layout from '@/components/Layout';
 import Image from 'next/image';
 import Link from 'next/link';
-import Banner from '/public/images/svgs/banner.svg';
+import Banner from '../../public/images/svgs/banner.svg';
 import 'animate.css';
 import { useState, useEffect } from 'react';
 import { ArrowRightCircle } from 'react-bootstrap-icons';

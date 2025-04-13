@@ -73,7 +73,7 @@ const Header = () => {
   return (
     <header
       className="w-full flex items-center justify-between 
-    dark:text-light text-lg px-32 py-8 font-medium z-10 lg:px-16 relative z-1 md:px-12 sm:px-8 "
+    dark:text-light text-lg px-32 py-8 font-medium z-10 lg:px-16 relative md:px-12 sm:px-8 "
     >
       <button className="flex-col justify-center items-center hidden lg:flex" onClick={handleClick}>
         <span
