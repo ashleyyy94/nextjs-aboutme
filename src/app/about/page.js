@@ -1,16 +1,17 @@
-import Head from 'next/head';
 import React from 'react';
-import AshleyPic from '../../public/images/profile/Ashley.png';
+import AshleyPic from '../../../public/images/profile/Ashley.png';
 import Image from 'next/image';
+import Link from 'next/link';
 import TransitionEffect from '@/components/TransitionEffect';
 
-const about = () => {
+export const metadata = {
+  title: 'About',
+  description: 'About Me',
+};
+
+export default function About() {
   return (
     <>
-      <Head>
-        <title>Ashley | About</title>
-        <meta name="description" content="About Ashley"></meta>
-      </Head>
       <TransitionEffect />
       <main>
         <div>
@@ -25,10 +26,10 @@ const about = () => {
                       <div className="title mb-3">Computer Engineer</div>
                       <ul className="list-unstyled">
                         <li className="mb-2">
-                          <a href="mailto:ashley_2461994@hotmail.com">
+                          <Link href="mailto:ashley_2461994@hotmail.com">
                             <i className="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>
                             ashley_2461994@hotmail.com
-                          </a>
+                          </Link>
                         </li>
                         <li>
                           <i className="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>+65 9832 9188
@@ -38,28 +39,28 @@ const about = () => {
                     <div className="secondary-info ml-md-auto mt-2">
                       <ul className="resume-social list-unstyled">
                         <li className="mb-3">
-                          <a href="https://www.linkedin.com/in/ashley-ong-2816a8105/">
+                          <Link href="https://www.linkedin.com/in/ashley-ong-2816a8105/">
                             <span className="fa-container text-center mr-2">
                               <i className="fab fa-linkedin-in fa-fw"></i>
                             </span>
                             linkedin.com/in/ashley-ong-2816a8105/
-                          </a>
+                          </Link>
                         </li>
                         <li className="mb-3">
-                          <a href="https://github.com/ashleyyy94">
+                          <Link href="https://github.com/ashleyyy94">
                             <span className="fa-container text-center mr-2">
                               <i className="fab fa-github-alt fa-fw"></i>
                             </span>
                             github.com/ashleyyy94
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="https://www.ashleyong.xyz">
+                          <Link href="https://www.ashleyong.xyz">
                             <span className="fa-container text-center mr-2">
                               <i className="fas fa-globe"></i>
                             </span>
                             www.ashleyong.xyz
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -437,9 +438,9 @@ const about = () => {
             <small className="copyright">
               Designed with <span className="sr-only">love</span>
               <i className="fas fa-heart"></i> by{' '}
-              <a href="http://themes.3rdwavemedia.com" target="_blank">
+              <Link href="http://themes.3rdwavemedia.com" target="_blank">
                 Xiaoying Riley
-              </a>{' '}
+              </Link>{' '}
               for developers
             </small>
           </footer>
@@ -447,6 +448,4 @@ const about = () => {
       </main>
     </>
   );
-};
-
-export default about;
+}

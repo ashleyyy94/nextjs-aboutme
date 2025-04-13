@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "home": true,
+    "about": true,
+    "collection": true,
+    "experiments": true,
+    "three": true
+  }
+}

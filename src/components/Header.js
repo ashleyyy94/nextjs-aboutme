@@ -1,13 +1,13 @@
-/* eslint-disable react/no-unescaped-entities */
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { MdEmail } from 'react-icons/md';
-import { DiCssdeck } from 'react-icons/di';
-import Logo from './Logo';
-import { useRouter } from 'next/router';
-import { GithubIcon, LinkedInIcon, MoonIcon, SunIcon } from './Icons';
+'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { MdEmail } from 'react-icons/md';
+import { GithubIcon, LinkedInIcon, MoonIcon, SunIcon } from './Icons';
+import Logo from './Logo';
 import useThemeSwitcher from './hooks/useThemeSwitcher';
+import featureFlags from '../config/featureFlags.json';
 
 const CustomLink = ({ href, title, className = '' }) => {
   const router = useRouter();
@@ -62,6 +62,14 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  const navigationLinks = [
+    { href: '/', title: 'Home', enabled: featureFlags.navigation.home },
+    { href: '/about', title: 'About', enabled: featureFlags.navigation.about },
+    { href: '/collection', title: 'Collection', enabled: featureFlags.navigation.collection },
+    { href: '/experiments', title: 'Experiments', enabled: featureFlags.navigation.experiments },
+    { href: '/three', title: '3D', enabled: featureFlags.navigation.three },
+  ];
+
   return (
     <header
       className="w-full flex items-center justify-between 
@@ -87,10 +95,17 @@ const Header = () => {
 
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav>
-          <CustomLink href="/" title="Home" className="mr-4" />
-          <CustomLink href="/about" title="About" className="mx-4" />
-          <CustomLink href="/collection" title="Collection" className="mx-4" />
-          <CustomLink href="/experiments" title="Experiments" className="ml-4" />
+          {navigationLinks.map(
+            (link) =>
+              link.enabled && (
+                <CustomLink
+                  key={link.href}
+                  href={link.href}
+                  title={link.title}
+                  className={link.href === '/' ? 'mr-4' : link.href === '/experiments' ? 'ml-4' : 'mx-4'}
+                />
+              )
+          )}
         </nav>
 
         <nav className="flex items-center justify-center flex-wrap">
@@ -141,10 +156,18 @@ const Header = () => {
       bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32"
         >
           <nav className="flex flex-col items-center justify-center">
-            <CustomMobileLink href="/" title="Home" className="" toggle={handleClick} />
-            <CustomMobileLink href="/about" title="About" className="" toggle={handleClick} />
-            <CustomMobileLink href="/collection" title="Collection" className="" toggle={handleClick} />
-            <CustomMobileLink href="/experiments" title="Experiments" className="" toggle={handleClick} />
+            {navigationLinks.map(
+              (link) =>
+                link.enabled && (
+                  <CustomMobileLink
+                    key={link.href}
+                    href={link.href}
+                    title={link.title}
+                    className=""
+                    toggle={handleClick}
+                  />
+                )
+            )}
           </nav>
 
           <nav className="flex items-center justify-center flex-wrap mt-2">
