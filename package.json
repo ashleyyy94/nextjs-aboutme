@@ -44,6 +44,7 @@
     "@nomicfoundation/hardhat-verify": "^2.1.0",
     "@typechain/ethers-v6": "^0.5.1",
     "@typechain/hardhat": "^9.1.0",
+    "@types/minimatch": "^6.0.0",
     "autoprefixer": "^10.4.14",
     "hardhat": "^2.25.0",
     "postcss": "^8.4.21",
