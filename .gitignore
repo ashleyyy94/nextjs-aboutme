@@ -46,5 +46,8 @@ node_modules
 /coverage
 /coverage.json
 
+# Ignore test files
+/test
+
 # Hardhat Ignition deployment artifacts
 ignition/deployments/
