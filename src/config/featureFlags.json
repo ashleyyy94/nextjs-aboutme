@@ -4,6 +4,7 @@
     "about": true,
     "collection": true,
     "experiments": true,
-    "three": true
+    "three": false,
+    "guestbook": true
   }
 }

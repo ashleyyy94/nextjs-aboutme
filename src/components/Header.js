@@ -68,6 +68,7 @@ const Header = () => {
     { href: '/collection', title: 'Collection', enabled: featureFlags.navigation.collection },
     { href: '/experiments', title: 'Experiments', enabled: featureFlags.navigation.experiments },
     { href: '/three', title: '3D', enabled: featureFlags.navigation.three },
+    { href: '/guestbook', title: 'Guestbook', enabled: featureFlags.navigation.guestbook },
   ];
 
   return (
@@ -102,7 +103,7 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   title={link.title}
-                  className={link.href === '/' ? 'mr-4' : link.href === '/experiments' ? 'ml-4' : 'mx-4'}
+                  className={link.href === '/' ? 'mr-4' : link.href === '/guestbook' ? 'ml-4' : 'mx-4'}
                 />
               )
           )}
@@ -163,7 +164,7 @@ const Header = () => {
                     key={link.href}
                     href={link.href}
                     title={link.title}
-                    className=""
+                    className={link.href === '/guestbook' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''}
                     toggle={handleClick}
                   />
                 )
