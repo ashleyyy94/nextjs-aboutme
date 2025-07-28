@@ -1,11 +1,13 @@
+'use client';
+
 import Guestbook from '@/components/Guestbook';
-import Layout from '@/components/Layout';
-import styles from './guestbook.module.scss';
+import TransitionEffect from '@/components/TransitionEffect';
 
 export default function GuestbookPage() {
   return (
-    <Layout>
+    <>
+      <TransitionEffect />
       <Guestbook />
-    </Layout>
+    </>
   );
 }
