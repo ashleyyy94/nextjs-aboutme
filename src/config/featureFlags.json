@@ -2,7 +2,7 @@
   "navigation": {
     "home": true,
     "about": true,
-    "collection": true,
+    "collection": false,
     "experiments": true,
     "three": false,
     "guestbook": true

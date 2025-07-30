@@ -84,7 +84,7 @@ export default function Home() {
                 <Link
                   href="https://www.linkedin.com/in/ashley-ong-2816a8105/"
                   target={'_blank'}
-                  className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light md:p-2 md:px-4 md:text-base"
+                  className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark dark:hover:bg-dark dark:hover:text-light dark:hover:border-light md:p-2 md:px-4 md:text-base"
                 >
                   Let&apos;s Connect <ArrowRightCircle size={25} style={{ marginLeft: '10px' }} />
                 </Link>

@@ -3329,7 +3329,7 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"shadow": {
+		"shadow-sm": {
 			"active": 0,
 			"flagValue": -1
 			},

@@ -17,7 +17,7 @@ const CustomLink = ({ href, title, className = '' }) => {
       {title}
 
       <span
-        className={`h-[1px] inline-block bg-dark absolute left-0 -bottom-0.5 
+        className={`h-px inline-block bg-dark absolute left-0 -bottom-0.5 
       group-hover:w-full transition-[width] ease duration-300
       ${router.asPath === href ? 'w-full' : 'w-0'} dark:bg-light`}
       >
@@ -44,7 +44,7 @@ const CustomMobileLink = ({ href, title, className = '', toggle }) => {
       {title}
 
       <span
-        className={`h-[1px] inline-block bg-light absolute left-0 -bottom-0.5 
+        className={`h-px inline-block bg-light absolute left-0 -bottom-0.5 
       group-hover:w-full transition-[width] ease duration-300
       ${router.asPath === href ? 'w-full' : 'w-0'} dark:bg-dark`}
       >
@@ -78,17 +78,17 @@ const Header = () => {
     >
       <button className="flex-col justify-center items-center hidden lg:flex" onClick={handleClick}>
         <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-xs ${
             isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'
           }`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${
+          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-xs my-0.5 ${
             isOpen ? 'opacity-0' : 'opacity-100'
           }`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${
+          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-xs  ${
             isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'
           } `}
         ></span>

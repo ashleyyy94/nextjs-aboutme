@@ -256,7 +256,7 @@ export default function Guestbook() {
       />
       <div className="relative max-w-2xl mx-auto p-0 sm:p-1">
         {/* Decorative accent bar */}
-        <div className="absolute left-1/2 -translate-x-1/2 -top-4 w-32 h-2 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 shadow-lg z-10" />
+        <div className="absolute left-1/2 -translate-x-1/2 -top-4 w-32 h-2 rounded-full bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 shadow-lg z-10" />
         <div
           className={`relative bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md p-6 sm:p-10 rounded-3xl shadow-2xl border border-gray-200 dark:border-neutral-800 transition-colors
             ring-1 ring-blue-300/30 dark:ring-blue-900/40
@@ -310,7 +310,7 @@ export default function Guestbook() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Leave a message..."
-                className="w-full p-2 border rounded-lg mb-2 dark:bg-neutral-800 dark:text-blue-100 dark:border-neutral-700 bg-gray-100 text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-colors"
+                className="w-full p-2 border rounded-lg mb-2 dark:bg-neutral-800 dark:text-blue-100 dark:border-neutral-700 bg-gray-100 text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-hidden transition-colors"
                 maxLength={280}
               />
               <div className="flex items-center gap-2">
@@ -328,7 +328,7 @@ export default function Guestbook() {
                   placeholder="0.00"
                   value={tip}
                   onChange={(e) => setTip(e.target.value)}
-                  className="w-24 p-2 border rounded-lg dark:bg-neutral-800 dark:text-blue-100 dark:border-neutral-700 bg-gray-100 text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-colors"
+                  className="w-24 p-2 border rounded-lg dark:bg-neutral-800 dark:text-blue-100 dark:border-neutral-700 bg-gray-100 text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-hidden transition-colors"
                 />
               </div>
               <div className="text-xs text-gray-500 dark:text-blue-300 ml-1">
@@ -356,7 +356,7 @@ export default function Guestbook() {
               id="network-select"
               value={selectedNetworkKey}
               onChange={handleNetworkSelect}
-              className="w-fit p-2 border rounded-lg dark:bg-neutral-800 dark:text-blue-100 dark:border-neutral-700 bg-gray-100 text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-colors"
+              className="w-fit p-2 border rounded-lg dark:bg-neutral-800 dark:text-blue-100 dark:border-neutral-700 bg-gray-100 text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-hidden transition-colors"
             >
               {Object.entries(NETWORKS).map(([key, net]) => (
                 <option key={key} value={key} className="bg-white dark:bg-neutral-800 text-gray-900 dark:text-blue-100">
