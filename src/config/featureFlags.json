@@ -2,9 +2,10 @@
   "navigation": {
     "home": true,
     "about": true,
-    "collection": false,
+    "collection": true,
     "experiments": true,
     "three": false,
+    "toto": true,
     "guestbook": true
   }
 }
