@@ -3,31 +3,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdContentCopy, MdDeleteOutline } from 'react-icons/md';
-
-function generateMainNumbers() {
-  const set = new Set();
-  while (set.size < 6) set.add(1 + Math.floor(Math.random() * 49));
-  return Array.from(set).sort((a, b) => a - b);
-}
+import { generateSixUnique, generateBonus, formatPick } from '@/lib/totoUtils';
+import { NumberBall, BonusBall } from '@/components/ui/NumberBall';
+import { SECONDARY_BUTTON_CLASSES, PRIMARY_BUTTON_CLASSES } from '@/lib/totoConstants';
 
 function generatePick(includeBonus) {
-  const main = generateMainNumbers();
-  let bonus = null;
-  if (includeBonus) {
-    const pool = Array.from({ length: 49 }, (_, i) => i + 1).filter((n) => !main.includes(n));
-    bonus = pool[Math.floor(Math.random() * pool.length)];
-  }
+  const main = generateSixUnique();
+  const bonus = includeBonus ? generateBonus(main) : null;
   return { main, bonus };
 }
-
-function formatPick(pick) {
-  return pick.bonus != null ? `${pick.main.join(' ')} ${pick.bonus}` : pick.main.join(' ');
-}
-
-const mainBallClasses =
-  'bg-gradient-to-br from-indigo-200 to-sky-300 text-gray-900 ring-1 ring-white/60 shadow-[0_10px_30px] shadow-sky-400/50 dark:from-indigo-400 dark:to-cyan-500 dark:text-white dark:ring-white/20 dark:shadow-cyan-400/40';
-const bonusBallClasses =
-  'bg-gradient-to-br from-amber-200 to-rose-300 text-gray-900 ring-1 ring-white/60 shadow-[0_10px_30px] shadow-rose-400/50 dark:from-amber-400 dark:to-pink-500 dark:text-white dark:ring-white/20 dark:shadow-pink-400/40';
 
 export default function TotoGenerator() {
   const [includeBonus, setIncludeBonus] = useState(true);
@@ -85,12 +69,7 @@ export default function TotoGenerator() {
   };
 
   return (
-    <motion.section
-      initial="hidden"
-      animate="show"
-      variants={cardVariants}
-      className="relative w-full max-w-2xl mx-auto"
-    >
+    <motion.section initial="hidden" animate="show" variants={cardVariants} className="relative w-full mx-auto">
       <div className="relative overflow-hidden rounded-2xl border border-black/5 dark:border-white/10 bg-white/70 dark:bg-black/40 backdrop-blur-md shadow-xl">
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-transparent via-white/10 to-transparent dark:via-white/5" />
 
@@ -109,7 +88,7 @@ export default function TotoGenerator() {
             <button
               type="button"
               onClick={() => setIncludeBonus((v) => !v)}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none ${
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none cursor-pointer ${
                 includeBonus ? 'bg-fuchsia-500' : 'bg-gray-300 dark:bg-zinc-700'
               }`}
               aria-pressed={includeBonus}
@@ -125,32 +104,14 @@ export default function TotoGenerator() {
 
           <div className="mt-6 grid grid-cols-3 sm:grid-cols-6 gap-3">
             {pick.main.map((n, idx) => (
-              <motion.div
-                key={`${burstKey}-${n}-${idx}`}
-                initial={{ y: 16, opacity: 0, rotate: -6 }}
-                animate={{ y: 0, opacity: 1, rotate: 0 }}
-                transition={{ duration: 0.35, delay: idx * 0.04, ease: 'easeOut' }}
-                className={`relative flex items-center justify-center aspect-square rounded-full ${mainBallClasses} select-none`}
-              >
-                <span className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold drop-shadow-sm">{n}</span>
-                <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/20" />
-              </motion.div>
+              <NumberBall key={`${burstKey}-${n}-${idx}`} number={n} animate={true} animationDelay={idx * 0.04} />
             ))}
           </div>
 
           {pick.bonus != null && (
             <div className="mt-4 flex items-center justify-center gap-3">
               <span className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Bonus</span>
-              <motion.div
-                key={`${burstKey}-bonus-${pick.bonus}`}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-                className={`relative flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 lg:h-12 lg:w-12 rounded-full ${bonusBallClasses} select-none`}
-              >
-                <span className="text-base sm:text-lg lg:text-xl font-bold drop-shadow-sm">{pick.bonus}</span>
-                <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/20" />
-              </motion.div>
+              <BonusBall key={`${burstKey}-bonus-${pick.bonus}`} number={pick.bonus} animate={true} />
             </div>
           )}
 
@@ -163,7 +124,7 @@ export default function TotoGenerator() {
             <motion.button
               onClick={handleGenerate}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white font-medium shadow-lg shadow-fuchsia-500/20 hover:from-indigo-600 hover:to-fuchsia-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500/50 focus-visible:ring-offset-transparent"
+              className={PRIMARY_BUTTON_CLASSES}
               aria-label="Generate Toto numbers"
             >
               <svg
@@ -182,18 +143,11 @@ export default function TotoGenerator() {
               Quick Pick
             </motion.button>
 
-            <button
-              onClick={() => handleCopy()}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/70 dark:bg-white/10 border border-black/5 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/15 text-sm text-gray-800 dark:text-gray-200 focus:outline-none"
-              aria-label="Copy current numbers"
-            >
+            <button onClick={() => handleCopy()} className={SECONDARY_BUTTON_CLASSES} aria-label="Copy current numbers">
               <MdContentCopy className="w-4 h-4" /> Copy
             </button>
 
-            <button
-              onClick={handleClearHistory}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/70 dark:bg-white/10 border border-black/5 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/15 text-sm text-gray-800 dark:text-gray-200 focus:outline-none"
-            >
+            <button onClick={handleClearHistory} className={SECONDARY_BUTTON_CLASSES}>
               <MdDeleteOutline className="w-4 h-4" /> Clear history
             </button>
 
@@ -225,29 +179,20 @@ export default function TotoGenerator() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <div className="flex items-center gap-1.5">
                         {h.main.map((n) => (
-                          <span
-                            key={n}
-                            className={`inline-flex items-center justify-center h-7 w-7 rounded-full text-xs font-semibold ${mainBallClasses}`}
-                          >
-                            {n}
-                          </span>
+                          <NumberBall key={n} number={n} size="small" />
                         ))}
                       </div>
                       {h.bonus != null && (
                         <>
                           <span className="text-xs text-gray-500 dark:text-gray-400">+</span>
-                          <span
-                            className={`inline-flex items-center justify-center h-7 w-7 rounded-full text-xs font-semibold ${bonusBallClasses}`}
-                          >
-                            {h.bonus}
-                          </span>
+                          <NumberBall number={h.bonus} isBonus={true} size="small" />
                         </>
                       )}
                     </div>
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleCopy(h)}
-                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-black/5 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/15 text-gray-800 dark:text-gray-200 focus:outline-none"
+                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-black/5 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/15 text-gray-800 dark:text-gray-200 focus:outline-none cursor-pointer"
                         aria-label="Copy this set"
                       >
                         <MdContentCopy className="w-3.5 h-3.5" /> Copy

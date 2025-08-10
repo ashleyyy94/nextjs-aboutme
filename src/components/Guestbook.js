@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ethers } from 'ethers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -57,9 +57,30 @@ export default function Guestbook() {
     };
   }, []);
 
+  const loadMessages = useCallback(async () => {
+    if (!window.ethereum || !contractAddress) return;
+
+    try {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const contract = new ethers.Contract(contractAddress, GuestbookABI, provider);
+      const result = await contract.getMessages();
+
+      const formattedMessages = result.map((msg) => ({
+        author: msg.author,
+        content: msg.content,
+        timestamp: new Date(Number(msg.timestamp) * 1000).toLocaleString(),
+      }));
+
+      setMessages(formattedMessages);
+    } catch (error) {
+      const errMsg = error && error.message ? error.message : String(error);
+      toast.error(`Failed to load messages: ${errMsg}`);
+    }
+  }, [contractAddress]);
+
   useEffect(() => {
     if (contractAddress) loadMessages();
-  }, [contractAddress]);
+  }, [contractAddress, loadMessages]);
 
   // Fetch ETH/MATIC to SGD rate on mount and when network changes
   useEffect(() => {
@@ -137,28 +158,6 @@ export default function Guestbook() {
       } else {
         toast.error('Failed to switch network');
       }
-    }
-  }
-
-  async function loadMessages() {
-    if (!window.ethereum || !contractAddress) return;
-
-    try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      const contract = new ethers.Contract(contractAddress, GuestbookABI, provider);
-      const result = await contract.getMessages();
-
-      const formattedMessages = result.map((msg) => ({
-        author: msg.author,
-        content: msg.content,
-        timestamp: new Date(Number(msg.timestamp) * 1000).toLocaleString(),
-      }));
-
-      setMessages(formattedMessages);
-    } catch (error) {
-      const errMsg = error && error.message ? error.message : String(error);
-      toast.error(`Failed to load messages: ${errMsg}`);
-      // Do not setError here; UI already handles empty state with friendly message
     }
   }
 
