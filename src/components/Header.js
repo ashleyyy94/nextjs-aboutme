@@ -218,6 +218,11 @@ const Header = () => {
         { href: '/experiments', title: 'Experiments', enabled: featureFlags.navigation.experiments },
         { href: '/three', title: '3D Projects', enabled: featureFlags.navigation.three },
         { href: '/toto', title: 'Toto', enabled: featureFlags.navigation.toto },
+        {
+          href: '/futures-calculator',
+          title: 'Futures Calculator',
+          enabled: featureFlags.navigation.futuresCalculator,
+        },
       ].filter((item) => item.enabled),
     },
     { href: '/guestbook', title: 'Guestbook', enabled: featureFlags.navigation.guestbook, type: 'link' },

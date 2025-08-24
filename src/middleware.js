@@ -7,6 +7,7 @@ const routeToFeatureFlag = {
   '/experiments': 'experiments',
   '/three': 'three',
   '/toto': 'toto',
+  '/futures-calculator': 'futuresCalculator',
   '/guestbook': 'guestbook',
 };
 

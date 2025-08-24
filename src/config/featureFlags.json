@@ -6,6 +6,7 @@
     "experiments": true,
     "three": false,
     "toto": true,
+    "futuresCalculator": true,
     "guestbook": true
   }
 }
