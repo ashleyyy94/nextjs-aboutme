@@ -223,6 +223,11 @@ const Header = () => {
           title: 'Futures Calculator',
           enabled: featureFlags.navigation.futuresCalculator,
         },
+        {
+          href: '/experiments/blackjack',
+          title: 'Blackjack Simulator',
+          enabled: featureFlags.navigation.blackjackSimulator,
+        },
       ].filter((item) => item.enabled),
     },
     { href: '/guestbook', title: 'Guestbook', enabled: featureFlags.navigation.guestbook, type: 'link' },
