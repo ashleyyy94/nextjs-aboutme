@@ -2,7 +2,7 @@ import React from 'react';
 import AshleyPic from '../../../public/images/profile/Ashley.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import TransitionEffect from '@/components/TransitionEffect';
+import TransitionEffect from '@/components/TransitionEffect.js';
 
 export const metadata = {
   title: 'About',

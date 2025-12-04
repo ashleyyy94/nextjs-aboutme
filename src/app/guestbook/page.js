@@ -1,7 +1,7 @@
 'use client';
 
-import Guestbook from '@/components/Guestbook';
-import TransitionEffect from '@/components/TransitionEffect';
+import Guestbook from '@/components/Guestbook.js';
+import TransitionEffect from '@/components/TransitionEffect.js';
 
 export default function GuestbookPage() {
   return (

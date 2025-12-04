@@ -1,6 +1,6 @@
 import React from 'react';
-import TransitionEffect from '@/components/TransitionEffect';
-import BlackjackSimulator from '@/components/BlackjackSimulator';
+import TransitionEffect from '@/components/TransitionEffect.js';
+import BlackjackSimulator from '@/components/BlackjackSimulator.js';
 
 export const metadata = {
   title: 'Blackjack Simulator',

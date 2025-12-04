@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import featureFlags from './config/featureFlags.json' assert { type: 'json' };
+import featureFlags from './config/featureFlags.json' with { type: 'json' };
 
 const routeToFeatureFlag = {
   '/about': 'about',
@@ -11,7 +11,7 @@ const routeToFeatureFlag = {
   '/guestbook': 'guestbook',
 };
 
-export function middleware(request) {
+export default function proxy(request) {
   const { pathname } = request.nextUrl;
   const normalizedPath = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 

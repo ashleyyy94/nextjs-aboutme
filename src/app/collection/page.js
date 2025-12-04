@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import IframeResizer from '@iframe-resizer/react';
-import TransitionEffect from '@/components/TransitionEffect';
+import TransitionEffect from '@/components/TransitionEffect.js';
 
 export default function Collection() {
   return (

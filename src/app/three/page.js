@@ -1,4 +1,4 @@
-import TransitionEffect from '@/components/TransitionEffect';
+import TransitionEffect from '@/components/TransitionEffect.js';
 import * as THREE from 'three';
 
 export const metadata = {

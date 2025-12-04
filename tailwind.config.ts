@@ -1,7 +1,7 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Config = {
   content: [
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx}',
@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        rubik: ['var(--font-rubik)', ...fontFamily.sans],
+        rubik: ['var(--font-rubik)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         dark: '#1b1b1b',
@@ -41,3 +41,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+export default config;

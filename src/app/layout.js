@@ -1,6 +1,6 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import ThemeScript from '@/components/ThemeScript';
+import Footer from '@/components/Footer.js';
+import Header from '@/components/Header.js';
+import ThemeScript from '@/components/ThemeScript.js';
 import '@/styles/globals.css';
 import { Rubik } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';

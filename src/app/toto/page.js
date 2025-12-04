@@ -1,9 +1,9 @@
 import React from 'react';
-import TransitionEffect from '@/components/TransitionEffect';
-import TotoGenerator from '@/components/TotoGenerator';
-import TotoPrizeSimulator from '@/components/TotoPrizeSimulator';
-import { Tabs } from '@/components/ui/tabs';
-import { SINGAPORE_POOLS_URL } from '@/lib/totoConstants';
+import TransitionEffect from '@/components/TransitionEffect.js';
+import TotoGenerator from '@/components/TotoGenerator.js';
+import TotoPrizeSimulator from '@/components/TotoPrizeSimulator.js';
+import { Tabs } from '@/components/ui/tabs.js';
+import { SINGAPORE_POOLS_URL } from '@/lib/totoConstants.js';
 
 export const metadata = {
   title: 'Toto',

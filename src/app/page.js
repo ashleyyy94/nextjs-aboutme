@@ -1,12 +1,12 @@
 'use client';
-import Layout from '@/components/Layout';
+import Layout from '@/components/Layout.js';
 import Image from 'next/image';
 import Link from 'next/link';
 import Banner from '../../public/images/svgs/banner.svg';
 import 'animate.css';
 import { useState, useEffect } from 'react';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
-import TransitionEffect from '@/components/TransitionEffect';
+import TransitionEffect from '@/components/TransitionEffect.js';
 
 export default function Home() {
   const [loopNum, setLoopNum] = useState(0);

@@ -9,10 +9,10 @@ import salmon from '../../../public/images/SD/salmon.png';
 import cat from '../../../public/images/SD/cat.png';
 import tree from '../../../public/images/SD/tree.png';
 import Image from 'next/image';
-import TransitionEffect from '@/components/TransitionEffect';
+import TransitionEffect from '@/components/TransitionEffect.js';
 import styles from './experiments.module.scss';
-import BlenderProjects from '@/components/BlenderProjects';
-import StableDiffusion from '@/components/StableDiffusion';
+import BlenderProjects from '@/components/BlenderProjects.js';
+import StableDiffusion from '@/components/StableDiffusion.js';
 
 export default function Experiments() {
   const FireplaceComponent = () => {

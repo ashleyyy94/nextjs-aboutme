@@ -1,6 +1,6 @@
 import React from 'react';
-import TransitionEffect from '@/components/TransitionEffect';
-import FuturesCalculator from '@/components/FuturesCalculator';
+import TransitionEffect from '@/components/TransitionEffect.js';
+import FuturesCalculator from '@/components/FuturesCalculator.js';
 
 export const metadata = {
   title: 'Futures Calculator',

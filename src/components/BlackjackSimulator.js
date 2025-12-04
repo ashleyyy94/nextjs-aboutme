@@ -163,7 +163,7 @@ export default function BlackjackSimulator() {
     if (gameState !== GAME_STATES.PLAYER_TURN) return;
 
     setGameState(GAME_STATES.DEALER_TURN);
-    setMessage('Dealer\'s turn');
+    setMessage("Dealer's turn");
 
     // Dealer plays
     let newDeck = [...deck];
@@ -419,7 +419,8 @@ export default function BlackjackSimulator() {
           <div>
             <h3 className="font-bold mb-2">Basic Strategy</h3>
             <p className="text-sm mb-4">
-              Enable &apos;Basic Strategy&apos; to see mathematically optimal moves. This reduces the house edge to about 0.5%.
+              Enable &apos;Basic Strategy&apos; to see mathematically optimal moves. This reduces the house edge to
+              about 0.5%.
             </p>
             <h3 className="font-bold mb-2">Payouts</h3>
             <ul className="text-sm space-y-1">
