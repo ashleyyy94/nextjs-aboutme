@@ -28,7 +28,7 @@
     "lucide-react": "^0.534.0",
     "moment": "^2.29.4",
     "motion": "^12.6.5",
-    "next": "16.0.7",
+    "next": "^16.0.10",
     "react": "^19.2.1",
     "react-bootstrap": "^2.5.0",
     "react-bootstrap-icons": "^1.8.4",
