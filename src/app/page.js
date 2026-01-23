@@ -61,8 +61,10 @@ export default function Home() {
             <div className="w-1/2 px-4 md:w-full md:py-4">
               <Image
                 src={Banner}
-                alt="Banner"
+                alt="Decorative illustration for the landing page featuring web development and design elements"
                 className="w-full h-auto lg:hidden md:inline-block md:w-full"
+                width={600}
+                height={400}
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               />

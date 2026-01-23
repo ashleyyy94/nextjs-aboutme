@@ -12,13 +12,18 @@ const rubik = Rubik({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://www.ashleyong.xyz'),
   title: {
-    default: 'Ashley',
-    template: '%s | Ashley',
+    default: 'Ashley | Frontend Web Developer & UI/UX Designer',
+    template: '%s | Ashley - Web Developer',
   },
-  description: 'Personal portfolio and experiments',
+  description:
+    'Ashley is a Frontend Web Developer and UI/UX Designer specializing in React, Next.js, and modern web technologies. Explore my portfolio of projects, experiments, and creative work.',
   icons: {
     icon: '/favicon.ico',
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 
