@@ -220,7 +220,7 @@ var ScrollSpy = function ($) {
 
       this._clear();
 
-      var queries = this._selector.split(','); // eslint-disable-next-line arrow-body-style
+      var queries = this._selector.split(',');  
 
 
       queries = queries.map(function (selector) {

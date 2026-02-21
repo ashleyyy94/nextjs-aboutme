@@ -18,15 +18,14 @@ export default function TotoGenerator() {
   const [pick, setPick] = useState(() => generatePick(true));
   const [burstKey, setBurstKey] = useState(0);
   const [particles, setParticles] = useState([]);
-  const [history, setHistory] = useState([]);
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
+  const [history, setHistory] = useState(() => {
     try {
       const raw = localStorage.getItem('toto_history');
-      if (raw) setHistory(JSON.parse(raw));
+      if (raw) return JSON.parse(raw);
     } catch {}
-  }, []);
+    return [];
+  });
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     try {
@@ -46,6 +45,7 @@ export default function TotoGenerator() {
       id: `${Date.now()}-${i}`,
       x: (Math.random() - 0.5) * 200,
       y: (Math.random() - 0.5) * 40,
+      yOffset: 60 + Math.random() * 40,
       size: 6 + Math.random() * 8,
       hue: Math.floor(Math.random() * 360),
       duration: 0.6 + Math.random() * 0.6,
@@ -174,7 +174,7 @@ export default function TotoGenerator() {
                 {history.map((h) => (
                   <li
                     key={h.id}
-                    className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 bg-black/[.03] dark:bg-white/[.04]"
+                    className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 bg-black/3 dark:bg-white/4"
                   >
                     <div className="flex items-center gap-2 flex-wrap">
                       <div className="flex items-center gap-1.5">
@@ -213,7 +213,7 @@ export default function TotoGenerator() {
             <motion.span
               key={p.id}
               initial={{ opacity: 0, x: 0, y: 0, scale: 0.8 }}
-              animate={{ opacity: [0, 1, 0], x: p.x, y: p.y - 60 - Math.random() * 40, scale: 1 }}
+              animate={{ opacity: [0, 1, 0], x: p.x, y: p.y - p.yOffset, scale: 1 }}
               transition={{ duration: p.duration, ease: 'easeOut' }}
               className="pointer-events-none absolute left-1/2 top-[58%]"
               style={{ filter: 'blur(0.2px)' }}

@@ -244,7 +244,7 @@ const ScrollSpy = (($) => {
       this._clear()
 
       let queries = this._selector.split(',')
-      // eslint-disable-next-line arrow-body-style
+       
       queries = queries.map((selector) => {
         return `${selector}[data-target="${target}"],` +
                `${selector}[href="${target}"]`
