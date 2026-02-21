@@ -19,7 +19,12 @@ export default function About() {
             <div className="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
               <header className="resume-header pt-4 pt-md-0">
                 <div className="media flex-column flex-md-row">
-                  <Image className="mr-3 img-fluid picture mx-auto" src={AshleyPic} alt="" priority></Image>
+                  <Image
+                    className="mr-3 img-fluid picture mx-auto"
+                    src={AshleyPic}
+                    alt="Profile photo of Ashley"
+                    priority
+                  ></Image>
                   <div className="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
                     <div className="primary-info">
                       <h1 className="name mt-0 mb-1 text-white text-uppercase text-uppercase">Ashley Ong</h1>

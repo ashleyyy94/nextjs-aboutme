@@ -18,7 +18,7 @@ export const metadata = {
     template: '%s | Ashley - Web Developer',
   },
   description:
-    'Ashley is a Frontend Web Developer and UI/UX Designer specializing in React, Next.js, and modern web technologies. Explore my portfolio of projects, experiments, and creative work.',
+    'Frontend Web Developer and UI/UX Designer specializing in React and Next.js. Explore my portfolio of projects and experiments.',
   icons: {
     icon: '/favicon.ico',
   },

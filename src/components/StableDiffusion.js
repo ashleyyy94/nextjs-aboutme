@@ -15,13 +15,13 @@ const StableDiffusion = () => {
         <Row>
           <Grid container columns={3} spacing={4} justify="center">
             <Grid size={1}>
-              <Image src={salmon} alt="" unoptimized></Image>
+              <Image src={salmon} alt="AI-generated image of salmon using Stable Diffusion" unoptimized></Image>
             </Grid>
             <Grid size={1}>
-              <Image src={cat} alt="" unoptimized></Image>
+              <Image src={cat} alt="AI-generated image of a cat using Stable Diffusion" unoptimized></Image>
             </Grid>
             <Grid size={1}>
-              <Image src={tree} alt="" unoptimized></Image>
+              <Image src={tree} alt="AI-generated image of a tree using Stable Diffusion" unoptimized></Image>
             </Grid>
           </Grid>
         </Row>

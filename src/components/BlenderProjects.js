@@ -15,13 +15,13 @@ const BlenderProjects = () => {
         <Row>
           <Grid container columns={3} spacing={4} justify="center">
             <Grid size={1}>
-              <Image src={donut} alt="" />
+              <Image src={donut} alt="3D animated donut render created in Blender" />
             </Grid>
             <Grid size={1}>
-              <Image src={pokeball} alt="" />
+              <Image src={pokeball} alt="3D animated Pokeball render created in Blender" />
             </Grid>
             <Grid size={1}>
-              <Image src={chess} alt="" width="400" height="400" />
+              <Image src={chess} alt="3D animated chess piece render created in Blender" width="400" height="400" />
             </Grid>
           </Grid>
         </Row>

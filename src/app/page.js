@@ -2,7 +2,6 @@
 import Layout from '@/components/Layout.js';
 import Image from 'next/image';
 import Link from 'next/link';
-import Banner from '../../public/images/svgs/banner.svg';
 import 'animate.css';
 import { useState, useEffect } from 'react';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
@@ -60,7 +59,7 @@ export default function Home() {
           <div className="flex items-center justify-between w-full lg:flex-col">
             <div className="w-1/2 px-4 md:w-full md:py-4">
               <Image
-                src={Banner}
+                src="/images/svgs/banner.svg"
                 alt="Decorative illustration for the landing page featuring web development and design elements"
                 className="w-full h-auto lg:hidden md:inline-block md:w-full"
                 width={600}
